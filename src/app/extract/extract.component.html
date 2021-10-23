@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <th>Valor</th>
+        <th>Destino</th>
+        <th>Data</th>
+    </thead>
+
+    <tbody *ngIf="!!bankTransfer; else emptyList">
+        <tr *ngFor="let transfer of bankTransfer">
+            <td>{{ transfer?.value | currency }}</td>
+            <td>{{ transfer?.destiny }}</td>
+            <td>{{ transfer?.date | date: "short" }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #emptyList >
+    <p>Nenhuma operação cadastrada</p>
+</ng-template>
